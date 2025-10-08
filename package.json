@@ -1,7 +1,7 @@
 {
   "name": "vite-sitemap",
   "version": "1.3.0",
-  "description": "The plugin helps to automatically create a sitemap. A sitemap is like a map for search engines, telling them what pages you have on your site. This makes it easier for search engines to find website and urls!",
+  "description": "The plugin helps to automatically create a sitemap for vite project",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/appsaeed/vite-sitemap.git"
+    "url": "git+https://github.com/saeedhosan/vite-sitemap.git"
   },
   "keywords": [
     "vite seo",
@@ -23,14 +23,14 @@
     "vite for better SEO",
     "generate sitemap for vite project",
     "seo friendly vite website",
-    "appsaeed"
+    "saeedhosan"
   ],
-  "author": "appsaeed",
+  "author": "saeedhosan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/appsaeed/sitemap.git/issues"
+    "url": "https://github.com/saeedhosan/sitemap.git/issues"
   },
-  "homepage": "https://github.com/appsaeed/sitemap.git#readme",
+  "homepage": "https://github.com/saeedhosan/sitemap.git#readme",
   "files": [
     "dist/"
   ],
