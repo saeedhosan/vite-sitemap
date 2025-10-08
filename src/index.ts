@@ -58,10 +58,10 @@ export default function sitemap(options?: SitemapOptions) {
 
     return {
         name: "sitemap",
-
-        async writeBundle(options: { dir: string }) {
+        async writeBundle(bundleOptions: { dir: string }) {
+            const outDir = options?.outputDir || bundleOptions?.dir || process.cwd(); // fallback to cwd
             try {
-                await writeFile(resolve(options.dir, filename), sitemapXML);
+                await writeFile(resolve(outDir, filename), sitemapXML);
             } catch (error) {
                 throw new Error(String(error));
             }

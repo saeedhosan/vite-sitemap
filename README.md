@@ -54,10 +54,10 @@ import sitemap from "vite-sitemap";
 export default defineConfig({
   plugins: [
     sitemap({
-      filename: "custom-sitemap.xml",
+      freq: "weekly", // optional - default daily
+      filename: "custom-sitemap.xml", // optional
       baseURL: "https://www.example.com",
       urls: ["about", "contact", "privacy-policy"],
-      freq: "weekly",
     }),
   ],
 });
