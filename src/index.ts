@@ -1,15 +1,15 @@
-import { format } from 'date-fns'; // For formatting the last modification date
 import { writeFile } from "fs/promises";
 import { resolve } from "path";
 
+/**
+ * Unslash a url or string
+ */
 export const unslash = (str: string): string => str.replace(/(\/$)|(^\/)/g, "");
+
 /**
  * add slash from last of url or string
- * @param str
- * @returns
  */
 export const adslash = (str: string): string => unslash(str).replace(/$/, "/");
-
 
 type SitemapOptions = {
     baseURL?: string;
@@ -17,15 +17,15 @@ type SitemapOptions = {
     urls?: string[];
     filename?: string;
     freq?: string;
-}
+};
 export default function sitemap(options?: SitemapOptions) {
     const urls = options?.urls || [];
     const baseUrl = options?.baseURL || "";
-    const filename = options?.filename || 'sitemap.xml';
-    const changefreq = options?.freq || 'daily';
+    const filename = options?.filename || "sitemap.xml";
+    const changefreq = options?.freq || "daily";
 
-    const today = new Date();
-    const formattedDate = format(today, "yyyy-MM-dd'T'HH:mm:ss'Z'"); // Format the current date
+    // Format the current date 2025-10-08T23:14:04.429Z
+    const formattedDate = (new Date()).toISOString();
 
     const sitemapEntries = urls.map((route, i) => {
         return `<url>
@@ -52,15 +52,14 @@ export default function sitemap(options?: SitemapOptions) {
             <changefreq>daily</changefreq>
             <priority>0.9</priority>
         </url>
-        ${sitemapEntries.join('')}
+        ${sitemapEntries.join("")}
     </urlset>
     `;
 
     return {
+        name: "sitemap",
 
-        name: 'sitemap',
-
-        async writeBundle(options: { dir: string; }) {
+        async writeBundle(options: { dir: string }) {
             try {
                 await writeFile(resolve(options.dir, filename), sitemapXML);
             } catch (error) {
@@ -68,4 +67,4 @@ export default function sitemap(options?: SitemapOptions) {
             }
         },
     };
-};
+}

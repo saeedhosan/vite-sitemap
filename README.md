@@ -7,15 +7,7 @@ The **Vite Sitemap** plugin helps generating sitemaps for your Vite projects sim
 Install the plugin using your preferred package manager:
 
 ```bash
-# Using npm
 npm i -D vite-sitemap
-
-# Using yarn
-yarn add vite-sitemap
-
-# Using pnpm
-pnpm install vite-sitemap
-
 ```
 
 ## Usage
@@ -27,17 +19,17 @@ import { defineConfig } from "vite";
 import sitemap from "vite-sitemap";
 
 export default defineConfig({
-    plugins: [
-        sitemap({
-            baseURL: "https://www.example.com",
-            urls: [
-                "about",
-                "privacy-policy",
-                "terms-and-conditions",
-                // Add more paths here
-            ],
-        }),
-    ],
+  plugins: [
+    sitemap({
+      baseURL: "https://www.example.com",
+      urls: [
+        "about",
+        "privacy-policy",
+        "terms-and-conditions",
+        // Add more paths here
+      ],
+    }),
+  ],
 });
 ```
 
@@ -60,14 +52,14 @@ import { defineConfig } from "vite";
 import sitemap from "vite-sitemap";
 
 export default defineConfig({
-    plugins: [
-        sitemap({
-            baseURL: "https://www.example.com",
-            urls: ["about", "contact", "privacy-policy"],
-            filename: "custom-sitemap.xml",
-            freq: "weekly",
-        }),
-    ],
+  plugins: [
+    sitemap({
+      filename: "custom-sitemap.xml",
+      baseURL: "https://www.example.com",
+      urls: ["about", "contact", "privacy-policy"],
+      freq: "weekly",
+    }),
+  ],
 });
 ```
 
