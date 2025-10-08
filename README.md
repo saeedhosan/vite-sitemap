@@ -66,7 +66,3 @@ export default defineConfig({
 ## Contributing
 
 We welcome contributions! Please see our [CONTRIBUTING.md](.github/CONTRIBUTING.md) guide for more details.
-
-```
-
-```

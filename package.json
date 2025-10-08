@@ -1,36 +1,31 @@
 {
   "name": "vite-sitemap",
   "version": "1.5.0",
-  "description": "The plugin helps to automatically create a sitemap for vite project",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "type": "module",
+  "description": "Vite plugin for generate sitemap",
+  "keywords": [
+    "vite-sitemap",
+    "vite sitemap plugin",
+    "vite SEO plugin"
+  ],
+  "author": "Saeed Hosan",
+  "license": "MIT",
+  "homepage": "https://github.com/saeedhosan/vite-sitemap#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saeedhosan/vite-sitemap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saeedhosan/vite-sitemap/issues"
+  },
   "scripts": {
     "build": "tsc",
     "rm": "rm -rf ./dist",
     "upload": "tsc && npm publish  --access public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/saeedhosan/vite-sitemap.git"
-  },
-  "keywords": [
-    "vite seo",
-    "vite sitemap generator",
-    "automatic sitemap generation for vite",
-    "improve website SEO with vite",
-    "vite plugin for search engines",
-    "vite for better SEO",
-    "generate sitemap for vite project",
-    "seo friendly vite website",
-    "saeedhosan"
-  ],
-  "author": "saeedhosan",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/saeedhosan/sitemap.git/issues"
-  },
-  "homepage": "https://github.com/saeedhosan/sitemap.git#readme",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "type": "module",
   "files": [
     "dist/"
   ],
@@ -40,15 +35,10 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js",
       "require": "./dist/index.js"
-    },
-    "./*": {
-      "types": "./dist/*.d.ts",
-      "import": "./dist/*.js",
-      "default": "./dist/*.js",
-      "require": "./dist/*.js"
     }
   },
   "devDependencies": {
-    "@types/node": "^20.12.7"
+    "@types/node": "^20.12.7",
+    "vite": "*"
   }
 }
