@@ -1,42 +1,80 @@
-## Intro
-Find the Vite plugins here. They make sitemaps for Vite projects super easy. They help users and search engines find stuff on your site easily. Makes your website better and saves you time.
+## Introduction
+
+The **Vite Sitemap** plugin helps generating sitemaps for your Vite projects simple and fast. It helps users and search engines discover your pages more efficiently, improving your SEO and saving you time.
 
 ## Installation
-Install with [npm](https://www.npmjs.com/)
-```sh
+
+Install the plugin using your preferred package manager:
+
+```bash
+# Using npm
 npm i -D vite-sitemap
-```
-or Install with [yarn](https://www.npmjs.com/package/yarn)
-```sh
+
+# Using yarn
 yarn add vite-sitemap
-```
-or Install with [pnpm](https://www.npmjs.com/package/pnpm)
-```sh
+
+# Using pnpm
 pnpm install vite-sitemap
+
 ```
 
-# Usage
-Use the vite plugin in your project go to vite.config.js or vite.config.ts and add the following to code in vite plugin section
-````js
-sitemap({
-        baseURL: 'www.example.com',
-        urls: [
-            "about",
-            "privacy-policy",
-            'term-and-conditions',
-            ...
-        ],
-    }),
-````
-Plugin section example in vite.config.ts or js
-````js
-import { defineConfig } from 'vite';
-import sitemap from 'vite-sitemap';
+## Usage
 
-// https://vitejs.dev/config/
+To use the plugin, import it in your `vite.config.js` or `vite.config.ts` file and add it to the `plugins` array:
+
+```ts
+import { defineConfig } from "vite";
+import sitemap from "vite-sitemap";
+
 export default defineConfig({
-  plugins: [
-    sitemap({ baseURL: 'www.example.com' })
-  ],
+    plugins: [
+        sitemap({
+            baseURL: "https://www.example.com",
+            urls: [
+                "about",
+                "privacy-policy",
+                "terms-and-conditions",
+                // Add more paths here
+            ],
+        }),
+    ],
 });
-````
+```
+
+### Configuration Options
+
+The `sitemap` plugin accepts an options object with the following properties:
+
+| Option      | Type     | Default         | Description                                                                        |
+| ----------- | -------- | --------------- | ---------------------------------------------------------------------------------- |
+| `baseURL`   | string   | `""`            | The base URL of your website. All paths will be appended to this URL.              |
+| `outputDir` | string   | Project `dist`  | (Optional) Directory where the sitemap file should be written.                     |
+| `urls`      | string[] | `[]`            | An array of paths you want to include in your sitemap.                             |
+| `filename`  | string   | `'sitemap.xml'` | The name of the sitemap file to be generated.                                      |
+| `freq`      | string   | `'daily'`       | Change frequency for each URL in the sitemap (`daily`, `weekly`, `monthly`, etc.). |
+
+#### Example Usage
+
+```ts
+import { defineConfig } from "vite";
+import sitemap from "vite-sitemap";
+
+export default defineConfig({
+    plugins: [
+        sitemap({
+            baseURL: "https://www.example.com",
+            urls: ["about", "contact", "privacy-policy"],
+            filename: "custom-sitemap.xml",
+            freq: "weekly",
+        }),
+    ],
+});
+```
+
+## Contributing
+
+We welcome contributions! Please see our [CONTRIBUTING.md](.github/CONTRIBUTING.md) guide for more details.
+
+```
+
+```
