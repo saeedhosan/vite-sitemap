@@ -1,4 +1,3 @@
-// import { adslash, unslash } from 'appmon/url';
 import { format } from 'date-fns'; // For formatting the last modification date
 import { writeFile } from "fs/promises";
 import { resolve } from "path";
@@ -17,11 +16,13 @@ type SitemapOptions = {
     outputDir?: string;
     urls?: string[];
     filename?: string;
+    freq?: string;
 }
 export default function sitemap(options?: SitemapOptions) {
     const urls = options?.urls || [];
     const baseUrl = options?.baseURL || "";
     const filename = options?.filename || 'sitemap.xml';
+    const changefreq = options?.freq || 'daily';
 
     const today = new Date();
     const formattedDate = format(today, "yyyy-MM-dd'T'HH:mm:ss'Z'"); // Format the current date
@@ -30,7 +31,7 @@ export default function sitemap(options?: SitemapOptions) {
         return `<url>
             <loc>${adslash(baseUrl)}${unslash(route)}</loc>
             <lastmod>${formattedDate}</lastmod>
-            <changefreq>daily</changefreq>
+            <changefreq>${changefreq}</changefreq>
             <priority>0.8</priority>
         </url>`;
     });
