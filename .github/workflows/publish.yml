@@ -3,6 +3,9 @@ name: Publish Packages
 on:
     release:
         types: [released]
+    push:
+        branches:
+            - main
 
 permissions:
     id-token: write # Required for OIDC
