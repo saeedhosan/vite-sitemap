@@ -37,7 +37,7 @@ jobs:
               run: pnpm install --shamefully-hoist --no-frozen-lockfile
 
             - name: Build package
-              run: pnpm install
+              run: pnpm build
 
             - name: "Publish to npm"
               run: pnpm publish --no-git-checks
