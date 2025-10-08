@@ -1,4 +1,4 @@
-name: Publish Packages
+name: 📦 Publish Packages
 
 on:
     release:
@@ -8,36 +8,38 @@ on:
             - main
 
 permissions:
-    id-token: write # Required for OIDC
+    id-token: write
     contents: read
 
 jobs:
     publish:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout
+            - name: ⬇️ Checkout repository
               uses: actions/checkout@v4
 
-            - name: Install pnpm
+            - name: ⚙️ Setup pnpm
               uses: pnpm/action-setup@v3
               with:
                   version: 10
 
-            - uses: actions/setup-node@v4
+            - name: 🧩 Setup Node.js
+              uses: actions/setup-node@v4
               with:
-                  node-version: "20"
+                  node-version: 20
                   registry-url: "https://registry.npmjs.org"
-                  cache: pnpm
+                  cache: false # ❌ disable pnpm cache to ignore lockfile
 
-            # Ensure npm 11.5.1 or later is installed
-            - name: Update npm
+            - name: 🧰 Update npm
               run: npm install -g npm@latest
 
-            - name: Install dependencies - without lockfile
-              run: pnpm install --shamefully-hoist --no-frozen-lockfile
+            - name: 📦 Install dependencies (no lockfile)
+              run: pnpm install --shamefully-hoist --no-frozen-lockfile --ignore-pnpmfile
 
-            - name: Build package
+            - name: 🏗️ Build package
               run: pnpm build
 
-            - name: "Publish to npm"
-              run: pnpm publish --no-git-checks
+            - name: 🚀 Publish to npm
+              run: pnpm publish --no-git-checks --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
