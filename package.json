@@ -1,11 +1,12 @@
 {
   "name": "vite-sitemap",
   "version": "1.6.0",
-  "description": "Vite plugin for generate sitemap",
+  "description": "Vite plugin for generating SEO-friendly sitemaps",
   "keywords": [
-    "vite-sitemap",
-    "vite sitemap plugin",
-    "vite SEO plugin"
+    "vite",
+    "sitemap",
+    "vite-plugin",
+    "SEO"
   ],
   "author": "Saeed Hosan",
   "license": "MIT",
@@ -19,8 +20,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "rm": "rm -rf ./dist",
-    "upload": "tsc && npm publish  --access public"
+    "publish": "tsc && npm publish --access public"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
