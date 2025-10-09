@@ -1,6 +1,8 @@
 ## Introduction
 
-The **Vite Sitemap** plugin helps generating sitemaps for your Vite projects simple and fast. It helps users and search engines discover your pages more efficiently, improving your SEO and saving you time.
+The `vite-sitemap` plugin makes it easier to generate sitemaps for Vite projects.
+
+> It simplifies sitemap creation by producing a standardized, well-structured final output.
 
 ## Installation
 
