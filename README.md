@@ -26,17 +26,17 @@ import { defineConfig } from "vite";
 import sitemap from "vite-sitemap";
 
 export default defineConfig({
-  plugins: [
-    sitemap({
-      baseURL: "https://www.example.com",
-      urls: [
-        "about",
-        "privacy-policy",
-        "terms-and-conditions",
-        // Add more paths here
-      ],
-    }),
-  ],
+    plugins: [
+        sitemap({
+            base: "https://www.example.com",
+            urls: [
+                "about",
+                "privacy-policy",
+                "terms-and-conditions",
+                // Add more paths here
+            ],
+        }),
+    ],
 });
 ```
 
@@ -44,13 +44,19 @@ export default defineConfig({
 
 The `sitemap` plugin accepts an options object with the following properties:
 
-| Option      | Type     | Default         | Description                                                                        |
-| ----------- | -------- | --------------- | ---------------------------------------------------------------------------------- |
-| `baseURL`   | string   | `""`            | The base URL of your website. All paths will be appended to this URL.              |
-| `outputDir` | string   | Project `dist`  | (Optional) Directory where the sitemap file should be written.                     |
-| `urls`      | string[] | `[]`            | An array of paths you want to include in your sitemap.                             |
-| `filename`  | string   | `'sitemap.xml'` | The name of the sitemap file to be generated.                                      |
-| `freq`      | string   | `'daily'`       | Change frequency for each URL in the sitemap (`daily`, `weekly`, `monthly`, etc.). |
+| Option       | Required | Default         | Description                                      |
+| ------------ | -------- | --------------- | ------------------------------------------------ |
+| `base`       | Yes      | `"/"`           | The website base url                             |
+| `urls`       | No       | `[]`            | An array of paths (strings) or Entry.            |
+| `changefreq` | No       | `'daily'`       | Frequency for URLs. Can be overridden per Entry. |
+| `filename`   | No       | `'sitemap.xml'` | The name of the sitemap file.                    |
+| `robotsTxt`  | No       | `undefined`     | The robotsTxt accept string, null, false         |
+
+#### Configuration types
+
+**Changefreq** : "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never"
+
+**Entry** : `path`:string | `lastmod`: iso datetime string | `changefreq` : Changefreq
 
 #### Example Usage
 
@@ -59,15 +65,38 @@ import { defineConfig } from "vite";
 import sitemap from "vite-sitemap";
 
 export default defineConfig({
-  plugins: [
-    sitemap({
-      freq: "weekly", // optional - default daily
-      filename: "custom-sitemap.xml", // optional
-      baseURL: "https://www.example.com",
-      urls: ["about", "contact", "privacy-policy"],
-    }),
-  ],
+    plugins: [
+        sitemap({
+            base: "https://www.example.com",
+            urls: ["about", "contact", "privacy-policy"],
+            filename: "custom-sitemap.xml", // optional
+            changefreq: "weekly", // optional - default daily
+        }),
+    ],
 });
+```
+
+#### Example entry
+
+```ts
+sitemap({
+    changefreq: "weekly", // optional - default daily
+    base: "https://www.example.com",
+    urls: [
+        "about",
+        "blog",
+        { path: "contact", changefreq: "monthly", priority: 0.7 },
+        { path: "privacy-policy", lastmod: new Date().toISOString(), priority: 0.5 },
+    ],
+});
+```
+
+### Robots txt
+
+```ts
+sitemap({ robotsTxt: null }); // disabled to auto generate
+sitemap({ robotsTxt: false });
+sitemap({ robotsTxt: "User-agent: *" }); // with custom content
 ```
 
 ## Contributing
