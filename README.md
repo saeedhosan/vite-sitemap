@@ -1,8 +1,13 @@
+[![npm version](https://badgen.net/npm/v/vite-sitemap)](https://www.npmjs.com/package/vite-sitemap)
+[![monthly downloads](https://badgen.net/npm/dm/vite-sitemap)](https://www.npmjs.com/package/vite-sitemap)
+[![types](https://badgen.net/npm/types/vite-sitemap)](https://github.com/saeedhosan/vite-sitemap/blob/main/src/types.ts)
+[![license](https://badgen.net/npm/license/vite-sitemap)](https://github.com/saeedhosan/vite-sitemap/blob/main/LICENSE.md)
+
 ## Introduction
 
 The `vite-sitemap` plugin makes it easier to generate sitemaps for Vite projects.
 
-> It simplifies sitemap creation by producing a standardized, well-structured final output.
+It simplifies sitemap creation by producing a standardized, well-structured final output.
 
 ## Installation
 
