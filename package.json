@@ -1,7 +1,7 @@
 {
   "name": "vite-sitemap",
-  "version": "1.6.0",
-  "description": "Vite plugin for generating SEO-friendly sitemaps",
+  "version": "1.7.0",
+  "description": "Vite plugin for generating sitemaps",
   "keywords": [
     "sitemap",
     "vite-sitemap"
