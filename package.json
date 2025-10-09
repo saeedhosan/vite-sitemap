@@ -3,10 +3,8 @@
   "version": "1.6.0",
   "description": "Vite plugin for generating SEO-friendly sitemaps",
   "keywords": [
-    "vite",
     "sitemap",
-    "vite-plugin",
-    "SEO"
+    "vite-sitemap"
   ],
   "author": "Saeed Hosan",
   "license": "MIT",
